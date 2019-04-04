@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TooltipsComponent } from './tooltips.component';
+import { NotificationdetailComponent } from './notificationdetail.component';
 
-describe('TooltipsComponent', () => {
-  let component: TooltipsComponent;
-  let fixture: ComponentFixture<TooltipsComponent>;
+describe('NotificationdetailComponent', () => {
+  let component: NotificationdetailComponent;
+  let fixture: ComponentFixture<NotificationdetailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TooltipsComponent ]
+      declarations: [ NotificationdetailComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TooltipsComponent);
+    fixture = TestBed.createComponent(NotificationdetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
