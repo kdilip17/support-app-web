@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -15,6 +19,7 @@ import { NotificationComponent } from './mynotification/mynotification.component
 import { HttpClientModule } from '@angular/common/http';
 import { NotificationdetailComponent } from './notificationdetail/notificationdetail.component';
 import { SearchbingComponent } from './searchbing/searchbing.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,12 @@ import { SearchbingComponent } from './searchbing/searchbing.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
