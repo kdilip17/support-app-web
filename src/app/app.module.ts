@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotificationComponent } from './mynotification/mynotification.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotificationdetailComponent } from './notificationdetail/notificationdetail.component';
+import { SearchbingComponent } from './searchbing/searchbing.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NotificationdetailComponent } from './notificationdetail/notificationde
     FooterComponent,
     DashboardComponent,
     NotificationComponent,
-    NotificationdetailComponent
+    NotificationdetailComponent,
+    SearchbingComponent
   ],
   imports: [
     BrowserModule,
