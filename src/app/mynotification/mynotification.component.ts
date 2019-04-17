@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import {Router} from '@angular/router';
-const endpoint = 'http://localhost:7733';
+const endpoint = 'http://10.150.90.42:7733';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json'
@@ -18,7 +18,7 @@ const httpOptions = {
   encapsulation: ViewEncapsulation.None
 })
 export class NotificationComponent implements OnInit {
-  API = 'http://localhost:7733';
+  API = 'http://10.150.90.42:7733';
   notifications: any[] = [];
 
   constructor(private http: HttpClient,private router: Router) { }

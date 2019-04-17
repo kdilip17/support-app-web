@@ -1,72 +1,85 @@
-<div class="row">
-  
-  
-  <div class="col-lg-12 grid-margin stretch-card">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Search Results</h4>
-        <!-- <p class="card-description">
-          Add class
-          <code>.table-striped</code>
-        </p> -->
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>
-                  S No
-                </th>
-                <th>
-                  pageName
-                  </th>
-                  <th>
-                    pageUrl
-                  </th>
-                <th>
-                  pageDisplayUrl
-                </th>
-                <th>
-                  pageDateLastCrawled
-                </th>
-                <th>
-                  pageSnippet
-                </th>
-                
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let bingdata of bingResults;index as i">
-                <!-- <td class="py-1">
-                  [class.selected]="notification === selectedNotification" (click)="onSelect(notification)"
-                  <img src="assets/images/faces-clipart/pic-1.png" alt="image" />
-                </td> -->
-                <td>
-                  {{i+1}}
-                </td>
-                <td>
-                    {{bingdata.pageName}}
-                  </td>
-                <td>
-                    {{bingdata.pageUrl}}
-                </td>
-                <td>
-                    {{bingdata.pageDisplayUrl}}
-                </td>
-                <td>
-                  {{bingdata.pageDateLastCrawled | date}}
-                </td>
-                <td>
-                    {{bingdata.pageSnippet}}
-                </td>
-                
-              </tr>
-            </tbody>
-          </table>
-        </div>
+<div class="custom-container">
+    <div class="asp-search-menu">
+      <div class="asp-logo">
+        <a href="#"><img src="../../assets/images/aruba_logo140x68.png"></a>
+      </div>
+      <div class="asp-logo-heading">
+          <a href="#">Aruba Support Portal</a>
       </div>
     </div>
-  </div>
- 
+    </div>
+    <div class="asp-search-input">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">        
+          <input type="tel" matInput placeholder="Search here">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </form>
+    </div>
   
-  
-</div>
+    <div class="custom-container">
+      <div class="search-results-count">
+        650 Results Found
+      </div>
+      <div class="search-results-list">
+          <mat-card>
+            <div class="search-product-name">
+                ClearPass 6.8.0.109592 (Universal ESXi OVF Image)
+            </div>
+            <div class="search-product-link">
+              <a href="#" >https://asp.arubanetworks.com/downloads/software/RmlsZTo0ZjAyMzU5ZS01YzcwLTExZTktOGI2Yi1mMzU3MmFlN2E1ZTU%3D</a>
+            </div>
+            <div class="search-product-series">
+                Product Series : Aruba RAP-155 Series Remote Access Points,Aruba IntroSpect Hardware Nodes, Aruba IntroSpect High Availability Licenses,Aruba IntroSpect Lab Licenses
+            </div>
+          </mat-card>
+          <mat-card>
+              <div class="search-product-name">
+                  ClearPass 6.8.0.109592 (Universal ESXi OVF Image)
+              </div>
+              <div class="search-product-link">
+                <a href="#">https://asp.arubanetworks.com/downloads/software/RmlsZTo0ZjAyMzU5ZS01YzcwLTExZTktOGI2Yi1mMzU3MmFlN2E1ZTU%3D</a>
+              </div>
+              <div class="search-product-series">
+                  Product Series : Aruba RAP-155 Series Remote Access Points,Aruba IntroSpect Hardware Nodes, Aruba IntroSpect High Availability Licenses,Aruba IntroSpect Lab Licenses
+              </div>
+            </mat-card>
+            <mat-card>
+                <div class="search-product-name">
+                    ClearPass 6.8.0.109592 (Universal ESXi OVF Image)
+                </div>
+                <div class="search-product-link">
+                  <a href="#">https://asp.arubanetworks.com/downloads/software/RmlsZTo0ZjAyMzU5ZS01YzcwLTExZTktOGI2Yi1mMzU3MmFlN2E1ZTU%3D</a>
+                </div>
+                <div class="search-product-series">
+                    Product Series : Aruba RAP-155 Series Remote Access Points,Aruba IntroSpect Hardware Nodes, Aruba IntroSpect High Availability Licenses,Aruba IntroSpect Lab Licenses
+                </div>
+              </mat-card>
+              <mat-card>
+                  <div class="search-product-name">
+                      ClearPass 6.8.0.109592 (Universal ESXi OVF Image)
+                  </div>
+                  <div class="search-product-link">
+                    <a href="#">https://asp.arubanetworks.com/downloads/software/RmlsZTo0ZjAyMzU5ZS01YzcwLTExZTktOGI2Yi1mMzU3MmFlN2E1ZTU%3D</a>
+                  </div>
+                  <div class="search-product-series">
+                      Product Series : Aruba RAP-155 Series Remote Access Points,Aruba IntroSpect Hardware Nodes, Aruba IntroSpect High Availability Licenses,Aruba IntroSpect Lab Licenses
+                  </div>
+                </mat-card>
+      </div>
+    </div>
+    <div class="search-results-footer-bg">
+      <div class="custom-container">
+        <div class="search-results-footer-content">
+      <div class="footer-links">
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms of service </a>
+        <a href="#">Site Map Lgal</a>
+        <a href="#">Legal</a>
+      </div>
+      <div class="copyrights-line">
+          © Copyright 2019 Hewlett Packard Enterprise Development LP
+      </div>
+    </div>
+    </div>
+    </div>

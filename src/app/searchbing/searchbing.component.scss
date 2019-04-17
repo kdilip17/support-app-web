@@ -1,0 +1,76 @@
+.custom-container{
+    margin: auto 40px;
+}
+.asp-search-menu{
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+.asp-logo-heading{
+    margin-left: 20px;
+    color: #FF6600;
+    font-size: 22px;
+}
+
+.search-parent{
+    background-color: #008375;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+
+.search-parent .example-form button{
+    background-color: #FF6600;
+    height: auto;
+    margin-left: 2px;
+}
+.search-bar-parent button:active{
+    width: auto !important;
+    display: inline-flex !important;
+}
+.search-results-count{
+    padding: 15px 0;
+    font-size: 23px;    
+}
+.search-results-list mat-card{
+    margin: 10px 0;
+}
+.search-product-name{
+    font-size: 14px;
+    font-weight: 500;
+    color:#10181F;
+}
+.search-product-link{
+    margin: 5px 0;
+    
+}
+.search-product-link a{
+    color: #FF6600 !important;
+}
+.search-product-series{
+    font-size: 13px;
+    color: #C3C5C8;
+}
+.search-results-footer-bg{    
+    background-color: #F3F3F4;
+    margin-top: 100px;
+}
+.search-results-footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    font-size: 12px;
+}
+.footer-links a{
+    color: #707070;
+    margin: 0 5px;
+}
+.copyrights-line{
+    color: #707070;
+}
+.asp-logo-heading a{
+    color: #FF6600 !important;
+}
