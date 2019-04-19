@@ -4,11 +4,9 @@ import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 let endpoint = 'http://localhost:7733';
-//
 
-//
 var subscriptionKey = '74c93b88238e40b493a1c9b0c10e4313';
-var customConfigId = '08f16ed4-528c-486f-91fa-c4d8c0baa357';
+var customConfigId = '639844c0-618d-4e38-bffe-ea39006fc86c';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -39,19 +37,12 @@ export class SearchbingComponent implements OnInit {
       customconfig: customConfigId,
       q: searchTerm
     }
-    endpoint = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?customconfig=" + qs.customconfig + "&q=" + qs.q;
+    endpoint = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?customconfig=" + qs.customconfig + "&q=" + qs.q + "&count=100";
     this.listNotification().subscribe((data: any) => {
+      // let showData = data
 
-      for (var i = 0; i < data.webPages.value.length; ++i) {
-        var webPage = data.webPages.value[i];
-        this.bingResults.push({
-          pageName: webPage.name,
-          pageUrl: webPage.url,
-          pageDisplayUrl: webPage.displayUrl,
-          pageSnippet: webPage.snippet,
-          pageDateLastCrawled: webPage.dateLastCrawled
-        })
-      }
+      console.log("printing listData", data.webPages.value);
+      this.bingResults = data.webPages.value;      
       console.log(this.bingResults)
     });
 

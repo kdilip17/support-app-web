@@ -1,5 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.search-parent .example-form .mat-form-field-flex{
+    background-color: #ffffff !important;
+    border-radius: 5px;
+}
+.asp-search-input{
+    background-color: #008375;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.example-form{
+    width: 30%;
+    
+}
+.example-form button{
+    background: #ea7700;
+}
+
+.asp-search-input .mat-form-field-flex{
+    background-color: #ffffff;        
+}
+
+.asp-search-input input{
+    padding-left: 10px;
+}
+.asp-search-input input:focus{
+    border: none !important;
+}
+.asp-search-input .mat-form-field-suffix{
+    padding: 5px 10px;
+    margin: 4px;
+    color: #ea7700;
+}
+.asp-search-input .mat-form-field-flex {        
+    border-radius: 5px;
+}
+.asp-search-input mat-form-field{
+    margin-top: 0;
+}
+.asp-search-input .mat-form-field-label{
+    font-size: 14px;
+}
+.asp-search-input mat-form-field{    
+    width: 100%;
+    margin-top: 20px;
+}
+.asp-search-input .mat-form-field-flex{
+    background-color: #ffffff;        
+}
+.asp-search-input mat-form-field{
+    position: relative;
+}
+
+.asp-search-input .example-form {
+    display: flex;
+    align-items: center;
+    width: 35%;
+}
+.example-form button{
+    background: #ea7700;
+    margin-left: 2px;
+    min-width: unset !important;
+    color: #fff;
+    padding: 5px 22px;
+}
+.asp-search-input label {
+    padding-left: 10px;
+}
+.asp-search-input mat-form-field{    
+    width: 100%;
+    margin-top: 1.34375em !important;
+}
+
+
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import './assets/styles/variables';
