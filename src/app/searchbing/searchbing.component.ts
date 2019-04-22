@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+// import { Ngx}
 let endpoint = 'http://localhost:7733';
 
 var subscriptionKey = '74c93b88238e40b493a1c9b0c10e4313';
@@ -26,8 +27,11 @@ export class SearchbingComponent implements OnInit {
   {id:4,name:'test'}];
   filteredOptions = [];
   someInput = '';
+  pageLength = false;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+    
+   }
   private extractData(res: Response) {
     let body = res;
     return body || {};
@@ -55,13 +59,15 @@ export class SearchbingComponent implements OnInit {
       customconfig: customConfigId,
       q: searchTerm
     }
-    endpoint = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?customconfig=" + qs.customconfig + "&q=" + qs.q + "&count=100";
+    endpoint = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?customconfig=" + qs.customconfig + "&q=" + qs.q + "&count=50&offset=0";
     this.listNotification().subscribe((data: any) => {
       // let showData = data
 
       console.log("printing listData", data.webPages.value);
       this.bingResults = data.webPages.value;
-      console.log(this.bingResults)
+      if(this.bingResults.length > 0){
+        this.pageLength = true;
+      }
     });
 
   }

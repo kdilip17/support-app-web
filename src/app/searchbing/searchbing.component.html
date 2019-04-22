@@ -30,10 +30,17 @@
 </div>
 
 <div class="custom-container">
-  <div class="search-results-count">
-    {{bingResults.length}} Results Found
+  <div>
+      <div class="search-results-count">
+          {{bingResults.length}} Results Found
+        </div>
+        <div *ngIf="pageLength">
+            <pagination-controls (pageChange)="p = $event"
+            ></pagination-controls>
+        </div>
   </div>
-  <div class="search-results-list" *ngFor="let item of bingResults; index as i; trackBy: trackByFn">
+  
+  <div class="search-results-list" *ngFor="let item of bingResults | paginate: { itemsPerPage: 10, currentPage: p }">
     <mat-card>      
         <div class="search-product-name">
             Added on: {{item.dateLastCrawled| date: 'MMM d, y'}}
@@ -46,8 +53,13 @@
         </div>      
     </mat-card>
   </div>
+  <pagination-controls *ngIf="pageLength" (pageChange)="p = $event"></pagination-controls>
 </div>
 <div class="search-results-footer-bg">
+  <!-- <ul>
+    <li *ngFor="let item of testcollection | paginate: { itemsPerPage: 10, currentPage: p }">{{item}}</li>
+  </ul> -->
+  
   <div class="custom-container">
     <div class="search-results-footer-content">
       <div class="footer-links">

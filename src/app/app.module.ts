@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NotificationdetailComponent } from './notificationdetail/notificationdetail.component';
 import { SearchbingComponent } from './searchbing/searchbing.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
