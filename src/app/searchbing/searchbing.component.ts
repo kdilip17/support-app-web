@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 let endpoint = 'http://localhost:7733';
 
 var subscriptionKey = '74c93b88238e40b493a1c9b0c10e4313';
-var customConfigId = '639844c0-618d-4e38-bffe-ea39006fc86c';
+// var customConfigId = '639844c0-618d-4e38-bffe-ea39006fc86c';
+var customConfigId = '08cdbf31-92cc-45f4-bbe5-cfc38f27505b' // dilip config id
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',

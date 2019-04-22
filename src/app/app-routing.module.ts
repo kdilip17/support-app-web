@@ -11,7 +11,7 @@ import { from } from 'rxjs';
 const routes: Routes = [
   // { path: '', component: AppComponent },
   // { path: '', redirectTo: '/mynotifications', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: '', component: SearchbingComponent },
   { path: 'notificationdetail', component: NotificationdetailComponent},
   { path: 'mynotifications', component: NotificationComponent },
   { path: 'searchbing', component: SearchbingComponent }
