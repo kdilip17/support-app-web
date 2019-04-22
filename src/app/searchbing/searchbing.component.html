@@ -11,10 +11,20 @@
 <div class="asp-search-input" style="background-color:#646569;">
   <form class="example-form">
     <mat-form-field class="example-full-width" floatLabel="never">
-      <input type="tel" matInput placeholder="Search here" [(ngModel)]="someInput" name="search">
+      <input type="tel" matInput placeholder="Search here" [(ngModel)]="someInput" name="search" 
+      [matAutocomplete]="auto" (keyup)="changeInput()">
       <!-- <button mat-button [(ngModel)]="someInput" name="search">Submit</button>  -->
-      <mat-icon matSuffix>search</mat-icon>
+      <!-- <mat-icon matSuffix>search</mat-icon> -->
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions" 
+        [value]="option.name">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
     </mat-form-field>
+    <div class="">
+
+    </div>
     <button mat-button (click)=readData(someInput)>Submit</button> 
   </form>
 </div>

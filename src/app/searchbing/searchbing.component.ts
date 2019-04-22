@@ -22,18 +22,35 @@ const httpOptions = {
 })
 export class SearchbingComponent implements OnInit {
   bingResults: any[] = [];
+  options = [{id:1,name:'test1'},{id:2,name:'test2'},{id:3,name:'test3'},
+  {id:4,name:'test'}];
+  filteredOptions = [];
+  someInput = '';
+
   constructor(private http: HttpClient, private router: Router) { }
   private extractData(res: Response) {
     let body = res;
     return body || {};
   }
+  /***
+   * Filter data based on input text
+   */
+  changeInput(){
+    if(this.someInput){
+      this.filteredOptions = this.getSearchedValue(this.someInput);
 
+    }
+  }
+  getSearchedValue(name){
+    const filterValue = name.toLowerCase();
+    return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+  }
   readData(data) {
     console.log("search dta", data);
     let someInput: String = ""
     let searchTerm = data;
-   
-    
+
+
     let qs = {
       customconfig: customConfigId,
       q: searchTerm
@@ -43,14 +60,21 @@ export class SearchbingComponent implements OnInit {
       // let showData = data
 
       console.log("printing listData", data.webPages.value);
-      this.bingResults = data.webPages.value;      
+      this.bingResults = data.webPages.value;
       console.log(this.bingResults)
     });
 
   }
+
   ngOnInit() {
-    
   }
+
+  // private _filter(value: string): string[] {
+  //   const filterValue = value.toLowerCase();
+
+  //   return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+  // }
+
   listNotification(): Observable<any> {
     return this.http.get(endpoint, httpOptions).pipe(
       map(this.extractData));
