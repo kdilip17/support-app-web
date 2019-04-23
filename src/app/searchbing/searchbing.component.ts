@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { _ } from "underscore";
 
 // import { Ngx}
 let endpoint = 'http://localhost:7733';
@@ -27,7 +28,7 @@ const azureUrlOptions = {
 
 const azureOptions = {
   endpoint: "https://arubacontentsearch.search.windows.net/indexes/azureblob-index6/docs?api-version="
-    + azureUrlOptions.qs.apiversion +"&search=aruba&searchfields=" + azureUrlOptions.qs.searchfields
+    + azureUrlOptions.qs.apiversion + "&search=aruba&searchfields=" + azureUrlOptions.qs.searchfields
 }
 // 
 const azureHttpOptions = {
@@ -48,8 +49,13 @@ export class SearchbingComponent implements OnInit {
   azureResults: any[] = [];
   finalSearchResults: any[] = [];
   finalSearchResults1: any[] = [];
-  options = [{ id: 1, name: 'aruba' }, { id: 2, name: 'air wave' }, { id: 3, name: 'documentation' },
-  { id: 4, name: 'community' }];
+  options = [
+    { id: 1, name: 'aruba' },
+    { id: 2, name: 'air wave' },
+    { id: 3, name: 'documentation' },
+    { id: 4, name: 'community' },
+    { id : 5, name: 'IntroSpect 2.4' }
+  ];
   filteredOptions = [];
   someInput = '';
   pageLength = false;
@@ -76,7 +82,7 @@ export class SearchbingComponent implements OnInit {
     return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
   }
   readAzureData() {
-    
+
   }
   readData(data) {
     this.bingResults = [];
@@ -93,7 +99,7 @@ export class SearchbingComponent implements OnInit {
       customconfig: customConfigId,
       q: searchTerm
     }
-   
+
     endpoint = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?customconfig=" + qs.customconfig + "&q=" + qs.q + "&count=50&offset=0";
     this.listNotification().subscribe((data: any) => {
       // let showData = data
@@ -111,12 +117,25 @@ export class SearchbingComponent implements OnInit {
         this.finalSearchResults1 = this.finalSearchResults1.concat(this.bingResults)
         this.finalSearchResults1 = this.finalSearchResults1.concat(this.azureResults);
         // console.log(this.finalSearchResults1.length)
+        
+        this.finalSearchResults1 = _.sortBy(this.finalSearchResults1, function (finalSearchResObj) {
+          if(finalSearchResObj.hasOwnProperty('datePublished')){
+            return finalSearchResObj['datePublished']
+          }else if(finalSearchResObj.hasOwnProperty('dateLastCrawled')){
+            return finalSearchResObj['dateLastCrawled']
+          }
+        }).reverse();
+        // else if(this.finalSearchResults1 && this.finalSearchResults1.hasOwnProperty('dateLastCrawled')){
+        //   this.finalSearchResults1 = _.sortBy(this.finalSearchResults1, 'dateLastCrawled').reverse();
+        // }
+        //datePublished
+        
         if (this.finalSearchResults1.length > 0) {
-           this.pageLength = true;
+          this.pageLength = true;
         }
       });
-      
-      
+
+
     });
 
   }
@@ -126,7 +145,7 @@ export class SearchbingComponent implements OnInit {
 
   accessDocument(event, item) {
     if (item.isLocked) {
-      alert("You don't have access to view this document")
+      alert("You don't have access to view this document. Please login to view this content.")
     } else {
       window.open(item.url, "_blank");
     }
@@ -143,14 +162,14 @@ export class SearchbingComponent implements OnInit {
       map(this.extractData));
   }
   listAzureNotification(): Observable<any> {
-    let customEndPoint = "http://localhost:7789/azure?searchTerm="+this.searchTermFinal
+    let customEndPoint = "http://localhost:7789/azure?searchTerm=" + this.searchTermFinal
     const customhttpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':'application/json',
-        'Access-Control-Allow-Origin':'http://localhost:7789'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'http://localhost:7789'
       })
     };
-    return this.http.get(customEndPoint,customhttpOptions).pipe(
+    return this.http.get(customEndPoint, customhttpOptions).pipe(
       map(this.extractData));
   }
   private handleError<T>(operation = 'operation', result?: T) {
