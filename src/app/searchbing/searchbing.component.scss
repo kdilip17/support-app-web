@@ -80,4 +80,15 @@
   .asp-logo-heading a{
     color: #FF6600 !important;
   }
-  
+  .hreflink{
+    cursor:pointer;
+  }
+  .hreflink:hover {
+    text-decoration:underline !important;
+    color:blue !important;
+}
+.lockicon{
+  position: absolute;
+    right: 4px;
+    top: 4px;
+}

@@ -32,7 +32,7 @@
 <div class="custom-container">
   <div>
       <div class="search-results-count">
-          {{bingResults.length}} Results Found
+          {{finalSearchResults1.length}} Results Found
         </div>
         <div *ngIf="pageLength">
             <pagination-controls (pageChange)="p = $event"
@@ -40,13 +40,16 @@
         </div>
   </div>
   
-  <div class="search-results-list" *ngFor="let item of bingResults | paginate: { itemsPerPage: 10, currentPage: p }">
+  <div class="search-results-list" *ngFor="let item of finalSearchResults1 | paginate: { itemsPerPage: 10, currentPage: p }">
     <mat-card>      
         <div class="search-product-name">
             Added on: {{item.dateLastCrawled| date: 'MMM d, y'}}
         </div>
-        <div class="search-product-link">
-          <a  target="_blank" href={{item.url}}>{{item.name}}</a>
+        <div *ngIf = "item.isLocked" class="lockicon">
+          <img src="../../assets/images/lock grey.png" alt="">
+        </div>
+        <div class="search-product-link" (click) = "accessDocument($event, item)">
+          <a class="hreflink">{{item.name}}</a>
         </div>
         <div class="search-product-series">
             {{item.snippet}}

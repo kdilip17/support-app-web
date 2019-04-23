@@ -1,0 +1,10 @@
+{
+    "/posts": {
+      "target": "https://arubacontentsearch.search.windows.net",
+      "secure": true,
+      "pathRewrite": {
+      "^/posts": ""
+    },
+      "changeOrigin": true
+    }
+  }
