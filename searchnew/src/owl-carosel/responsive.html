@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- head -->
+    <meta charset="utf-8">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="docs.theme.min.css">
+
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="owl.carousel.min.css">
+<!--    <link rel="stylesheet" href="owl.theme.default.min.css">-->
+    <script src="jquery.min.js"></script>
+    <script src="owl.carousel.js"></script>
+  </head>
+  <body>
+
+    <!--  Demos -->
+    <section id="demos">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="owl-carousel owl-theme asp-owl">
+            <div class="item">
+                <div><img src="asp-img1.png"></div>
+                <div><a class="waves-effect waves-light btn-small">Software solutions</a></div>
+            </div>
+            <div class="item">
+             <div><img src="asp-img2.png"></div>
+                <div><a class="waves-effect waves-light btn-small">switches</a></div>
+            </div>
+            <div class="item">
+              <div><img src="asp-img1.png"></div>
+                <div><a class="waves-effect waves-light btn-small">controllers</a></div>
+            </div>
+            <div class="item">
+              <div><img src="asp-img2.png"></div>
+                <div><a class="waves-effect waves-light btn-small">access points</a></div>
+            </div>
+            <div class="item">
+             <div><img src="asp-img1.png"></div>
+                <div><a class="waves-effect waves-light btn-small">Software solutions</a></div>
+            </div>
+            <div class="item">
+              <div><img src="asp-img2.png"></div>
+                <div><a class="waves-effect waves-light btn-small">Software solutions</a></div>
+            </div>
+            <div class="item">
+              <div><img src="asp-img1.png"></div>
+                <div><a class="waves-effect waves-light btn-small">Software solutions</a></div>
+            </div>
+            <div class="item">
+              <div><img src="asp-img2.png"></div>
+                <div><a class="waves-effect waves-light btn-small">Software solutions</a></div>
+            </div>
+            <div class="item">
+              <div><img src="asp-img1.png"></div>
+                <div><a class="waves-effect waves-light btn-small">Software solutions</a></div>
+            </div>
+            <div class="item">
+              <div><img src="asp-img2.png"></div>
+                <div><a class="waves-effect waves-light btn-small">Software solutions</a></div>
+            </div>
+          </div>
+          
+          <script>
+            $(document).ready(function() {
+              $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                responsiveClass: true,
+                responsive: {
+                  0: {
+                    items: 1,
+                    nav: true
+                  },
+                  600: {
+                    items: 3,
+                    nav: false
+                  },
+                  1000: {
+                    items: 4,
+                    nav: true,
+                    loop: false,
+                    margin: 20
+                  }
+                }
+              })
+            })
+          </script>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

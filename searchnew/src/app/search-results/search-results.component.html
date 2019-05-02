@@ -1,0 +1,169 @@
+
+<div class="management-heading">
+    <div class="custom-container">
+  <div class="page-links">
+    <a href="#">HOME</a>
+    <span>></span>
+    <a href="#">SEARCH RESULTS</a>
+  </div>
+  <div class="heading-text search-results-heading">
+      Search Results
+  </div>
+</div>    
+</div>
+<div class="custom-container">
+    <div class="result-search-parent">
+        <div class="row">
+        <div class="col-md-6"> 
+<div class="results-search">
+    <form class="example-form">
+        <mat-form-field class="example-full-width" floatLabel="never">
+            <input type="tel" matInput placeholder="Search here" [(ngModel)]="someInput" name="search" 
+            [matAutocomplete]="auto" (keyup)="changeInput()">
+          <mat-icon matSuffix (click)=readData(someInput) style="cursor:pointer;">search</mat-icon>
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option style="line-height: 20px !important;height: 30px !important;" *ngFor="let option of filteredOptions" 
+            [value]="option.displayText">
+              {{option.displayText}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+</div>
+</div>
+<div class="col-md-6">
+    <div class="result-sort">
+            <mat-form-field>
+                <mat-label>Sort here</mat-label>
+                <mat-select>
+                <mat-option>None</mat-option>
+                <mat-option value="Option - 1">Option - 1</mat-option>
+                <mat-option  value="Option - 2">Option - 2</mat-option>
+                <mat-option  value="Option - 3">Option - 3</mat-option>
+                <mat-option  value="Option - 4">Option - 4</mat-option>
+                </mat-select>
+            </mat-form-field>
+    </div>
+</div>
+</div>
+</div> 
+<div class="search-results-tab">
+    <mat-tab-group>
+        <mat-tab label="All ({{finalSearchResults1.length}})">             
+                <div class="announcements-update-carousel search-results-list" *ngFor="let filterResult of finalSearchResults1" >
+                    <div class="announcement-desc">
+                        <div class="results-lock" routerLink="/login">
+                          <img src="../../assets/images/search/lock.png" alt="Lock icon">
+                        </div>
+                      <div class="announce-product-name" class="hreflink"  (click) = "accessDocument($event, filterResult)">
+                          {{filterResult.name}}
+                      </div>
+                    </div>
+                    <div class="announce-product-heading">
+                        {{filterResult.url}}
+                    </div>                    
+                    <div class="announce-product-desc">
+                        {{filterResult.snippet}}
+                    </div>
+                  </div>
+            <div class="search-result-pegination">
+                <mat-paginator [length]="totalResults"
+                [pageSize]="10"
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                (page)="pageChange($event)">
+           </mat-paginator>
+            </div>
+        </mat-tab>
+        <mat-tab label="Announcements  ({{announcementResults.length}})">
+          <div *ngIf="announcementResults.length == 0" class="noResult">
+            No Results found
+          </div>
+                <div class="announcements-update-carousel search-results-list" *ngFor="let announcementResult of announcementResults" >
+                    <div class="announcement-desc">
+                      <div class="announce-product-name" class="hreflink"  (click) = "accessDocument($event, announcementResult)">
+                          {{announcementResult.name}}
+                      </div>
+                    </div>
+                    <div class="announce-product-heading">
+                        {{announcementResult.url}}
+                    </div>
+                    <div class="announce-product-desc">
+                        {{announcementResult.snippet}}
+                    </div>
+                  </div>
+        </mat-tab>
+        <mat-tab label="Software only ({{softwareResults.length}})"> 
+            <div *ngIf="softwareResults.length == 0" class="noResult">
+                No Results found
+              </div>
+            <div class="announcements-update-carousel search-results-list" *ngFor="let softwareResult of softwareResults" >
+                <div class="announcement-desc">
+                  <div class="announce-product-name" class="hreflink"  (click) = "accessDocument($event, softwareResult)">
+                      {{softwareResult.name}}
+                  </div>
+                </div>
+                <div class="announce-product-heading">
+                    {{softwareResult.url}}
+                </div>
+                <div class="announce-product-desc">
+                    {{softwareResult.snippet}}
+                </div>
+              </div>
+        </mat-tab>
+        <mat-tab label="Documentation only ({{documentationResults.length}})"> 
+            <div *ngIf="documentationResults.length == 0" class="noResult">
+                No Results found
+              </div>
+            <div class="announcements-update-carousel search-results-list" *ngFor="let documentationResult of documentationResults" >
+                <div class="announcement-desc">
+                  <div class="announce-product-name" class="hreflink"  (click) = "accessDocument($event, documentationResult)">
+                      {{documentationResult.name}}
+                  </div>
+                </div>
+                <div class="announce-product-heading">
+                    {{documentationResult.url}}
+                </div>
+                <div class="announce-product-desc">
+                    {{documentationResult.snippet}}
+                </div>
+              </div>
+        </mat-tab>
+        <mat-tab label="KB Articles only ({{knowledgeResults.length}})"> 
+            <div *ngIf="knowledgeResults.length == 0" class="noResult">
+                No Results found
+              </div>
+            <div class="announcements-update-carousel search-results-list" *ngFor="let knowledgeResult of knowledgeResults" >
+                <div class="announcement-desc">
+                  <div class="announce-product-name" class="hreflink"  (click) = "accessDocument($event, knowledgeResult)">
+                      {{knowledgeResult.name}}
+                  </div>
+                </div>
+                <div class="announce-product-heading">
+                    {{knowledgeResult.url}}
+                </div>
+                <div class="announce-product-desc">
+                    {{knowledgeResult.snippet}}
+                </div>
+              </div>
+        </mat-tab>
+        <mat-tab label="Help & FAQ ({{helpResults.length}})"> 
+            <div *ngIf="helpResults.length == 0" class="noResult">
+                No Results found
+              </div>
+            <div class="announcements-update-carousel search-results-list" *ngFor="let helpResult of helpResults" >
+                <div class="announcement-desc">
+                  <div class="announce-product-name" class="hreflink"  (click) = "accessDocument($event, helpResult)">
+                      {{helpResult.name}}
+                  </div>
+                </div>
+                <div class="announce-product-heading">
+                    {{helpResult.url}}
+                </div>
+                <div class="announce-product-desc">
+                    {{helpResult.snippet}}
+                </div>
+              </div>
+        </mat-tab>        
+      </mat-tab-group>
+</div>
+</div>

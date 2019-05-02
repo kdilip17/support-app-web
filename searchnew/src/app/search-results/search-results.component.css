@@ -1,0 +1,13 @@
+.hreflink{
+    cursor:pointer;
+  }
+  .hreflink:hover {
+    text-decoration:underline !important;
+    color:blue !important;
+}
+.noResult{
+  color: #800000;
+  font-size:14 px;
+  padding-left: 25px;
+  padding-top: 10px;
+  }

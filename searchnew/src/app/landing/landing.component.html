@@ -1,0 +1,757 @@
+<div class="asp-banner">
+  <div class="mobile-position">
+    <div class="asp-heading-mobile">Aruba Support Portal</div>
+    <div class="asp-home-search">
+      <div>
+        <div class="asp-heading">ARUBA SUPPORT PORTAL</div>
+        <div class="asp-search-input">
+          
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Search products or softwares" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+              <mat-icon matSuffix>search</mat-icon>
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let state of filteredStates | async" [value]="state.name" class="home-search-list">
+                  <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
+                  <span>{{state.name}}</span>
+                  <!-- <small>Population: {{state.population}}</small> -->
+                </mat-option>
+                <div class="view-all-searches">
+                  <span routerLink="/search-details">View All</span></div>
+              </mat-autocomplete>              
+            </mat-form-field>
+          </form>
+         
+          
+          <!-- <form class="example-form">
+            <mat-form-field class="example-full-width">      
+              <input type="text" matInput placeholder="Search products or softwares">              
+              <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+          </form> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="custom-container">
+  <div class="image-carousel">
+    <div class="carousel-heading">Aruba Products</div>
+      <app-my-carousel></app-my-carousel>
+  </div>
+  <div class="invite show-on-mobile">
+      <div class="invite-heading">
+        Been invited yet?
+      </div>
+      <div class="invite-body-bg">
+        <div class="invite-body">
+          If so, click on “<a href="#">Login</a>”. If not, please request access here:
+        </div>
+        <div class="invite-link">
+          <a href="#"><img src="../../assets/images/landing/mail-img.png"><span>asp-access@hpe.com</span></a>
+        </div>
+      </div>
+    </div>
+
+  <div class="announcement-case-parent">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="announcements-heading">ANNOUNCEMENTS</div>
+        <div class="announcements-tab">
+            <mat-tab-group>
+                <mat-tab label="New software releases"> 
+                    <div class="announcements-update-carousel">
+                        <div class="announcement-desc">
+                          <div class="announce-product-name">
+                            Mobility Controllers
+                          </div>
+                          <div class="announce-date">
+                            Added on Feb 25, 2019
+                          </div>
+                          <div class="announce-more-detailes">
+                            <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                          </div>
+                        </div>
+                        <div class="announce-product-heading">
+                          Aruba mobility controllers policy manager
+                        </div>
+                        <div class="announce-product-desc">
+                          Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                          deprecaring support...
+                        </div>
+                      </div>
+                      <div class="announcements-update-carousel">
+                        <div class="announcement-desc">
+                          <div class="announce-product-name">
+                            Mobility Controllers
+                          </div>
+                          <div class="announce-date">
+                            Added on Feb 25, 2019
+                          </div>
+                          <div class="announce-more-detailes">
+                            <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                          </div>
+                        </div>
+                        <div class="announce-product-heading">
+                          Aruba mobility controllers policy manager
+                        </div>
+                        <div class="announce-product-desc">
+                          Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                          deprecaring support...
+                        </div>
+                      </div>
+                      <div class="announcements-update-carousel">
+                        <div class="announcement-desc">
+                          <div class="announce-product-name">
+                            Mobility Controllers
+                          </div>
+                          <div class="announce-date">
+                            Added on Feb 25, 2019
+                          </div>
+                          <div class="announce-more-detailes">
+                            <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                          </div>
+                        </div>
+                        <div class="announce-product-heading">
+                          Aruba mobility controllers policy manager
+                        </div>
+                        <div class="announce-product-desc">
+                          Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                          deprecaring support...
+                        </div>
+                      </div>
+                      <div class="announcements-update-carousel">
+                        <div class="announcement-desc">
+                          <div class="announce-product-name">
+                            Mobility Controllers
+                          </div>
+                          <div class="announce-date">
+                            Added on Feb 25, 2019
+                          </div>
+                          <div class="announce-more-detailes">
+                            <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                          </div>
+                        </div>
+                        <div class="announce-product-heading">
+                          Aruba mobility controllers policy manager
+                        </div>
+                        <div class="announce-product-desc">
+                          Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                          deprecaring support...
+                        </div>
+                      </div> 
+                </mat-tab>
+                <mat-tab label="Security Advisories"> 
+                    <div class="announcements-update-carousel">
+                        <div class="announcement-desc">
+                          <div class="announce-product-name">
+                            Aruba Instant
+                          </div>
+                          <div class="announce-date">
+                            Added on Feb 25, 2019
+                          </div>
+                          <div class="announce-more-detailes">
+                            <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                          </div>
+                        </div>
+                        <div class="announce-product-heading">
+                          Aruba Instant Multiple Vulnerabilities
+                        </div>
+                        <div class="announce-product-desc">
+                          Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                          deprecaring support...
+                        </div>
+                      </div>
+                      <div class="announcements-update-carousel">
+                        <div class="announcement-desc">
+                          <div class="announce-product-name">
+                            Clear Pass
+                          </div>
+                          <div class="announce-date">
+                            Added on Mar 22, 2019
+                          </div>
+                          <div class="announce-more-detailes">
+                            <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                          </div>
+                        </div>
+                        <div class="announce-product-heading">
+                          ClearPass Policy Manager Multiple Vulnerabilities
+                        </div>
+                        <div class="announce-product-desc">
+                          Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                          deprecaring support...
+                        </div>
+                      </div>
+                      <div class="announcements-update-carousel">
+                        <div class="announcement-desc">
+                          <div class="announce-product-name">
+                            Mobility Controllers
+                          </div>
+                          <div class="announce-date">
+                            Added on Feb 25, 2019
+                          </div>
+                          <div class="announce-more-detailes">
+                            <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                          </div>
+                        </div>
+                        <div class="announce-product-heading">
+                          Aruba mobility controllers policy manager
+                        </div>
+                        <div class="announce-product-desc">
+                          Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                          deprecaring support...
+                        </div>
+                      </div>
+                      <div class="announcements-update-carousel">
+                        <div class="announcement-desc">
+                          <div class="announce-product-name">
+                            Mobility Controllers
+                          </div>
+                          <div class="announce-date">
+                            Added on Feb 25, 2019
+                          </div>
+                          <div class="announce-more-detailes">
+                            <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                          </div>
+                        </div>
+                        <div class="announce-product-heading">
+                          Aruba mobility controllers policy manager
+                        </div>
+                        <div class="announce-product-desc">
+                          Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                          deprecaring support...
+                        </div>
+                      </div>
+                      <div class="view-more">
+                        <a href="#"><img src="../../assets/images/landing/cta-arrow.png"><span>View More (20)</span></a>
+                      </div>
+                 </mat-tab>                
+              </mat-tab-group>
+
+          <!-- <tabset>
+            <tab heading="New software releases" id="tab1">
+              <div class="announcements-update-carousel">
+                <div class="announcement-desc">
+                  <div class="announce-product-name">
+                    Mobility Controllers
+                  </div>
+                  <div class="announce-date">
+                    Added on Feb 25, 2019
+                  </div>
+                  <div class="announce-more-detailes">
+                    <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                  </div>
+                </div>
+                <div class="announce-product-heading">
+                  Aruba mobility controllers policy manager
+                </div>
+                <div class="announce-product-desc">
+                  Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                  deprecaring support...
+                </div>
+              </div>
+              <div class="announcements-update-carousel">
+                <div class="announcement-desc">
+                  <div class="announce-product-name">
+                    Mobility Controllers
+                  </div>
+                  <div class="announce-date">
+                    Added on Feb 25, 2019
+                  </div>
+                  <div class="announce-more-detailes">
+                    <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                  </div>
+                </div>
+                <div class="announce-product-heading">
+                  Aruba mobility controllers policy manager
+                </div>
+                <div class="announce-product-desc">
+                  Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                  deprecaring support...
+                </div>
+              </div>
+              <div class="announcements-update-carousel">
+                <div class="announcement-desc">
+                  <div class="announce-product-name">
+                    Mobility Controllers
+                  </div>
+                  <div class="announce-date">
+                    Added on Feb 25, 2019
+                  </div>
+                  <div class="announce-more-detailes">
+                    <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                  </div>
+                </div>
+                <div class="announce-product-heading">
+                  Aruba mobility controllers policy manager
+                </div>
+                <div class="announce-product-desc">
+                  Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                  deprecaring support...
+                </div>
+              </div>
+              <div class="announcements-update-carousel">
+                <div class="announcement-desc">
+                  <div class="announce-product-name">
+                    Mobility Controllers
+                  </div>
+                  <div class="announce-date">
+                    Added on Feb 25, 2019
+                  </div>
+                  <div class="announce-more-detailes">
+                    <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                  </div>
+                </div>
+                <div class="announce-product-heading">
+                  Aruba mobility controllers policy manager
+                </div>
+                <div class="announce-product-desc">
+                  Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                  deprecaring support...
+                </div>
+              </div>
+            </tab>
+            <tab heading="Security Advisories" id="tab1">
+              <div class="announcements-update-carousel">
+                <div class="announcement-desc">
+                  <div class="announce-product-name">
+                    Aruba Instant
+                  </div>
+                  <div class="announce-date">
+                    Added on Feb 25, 2019
+                  </div>
+                  <div class="announce-more-detailes">
+                    <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                  </div>
+                </div>
+                <div class="announce-product-heading">
+                  Aruba Instant Multiple Vulnerabilities
+                </div>
+                <div class="announce-product-desc">
+                  Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                  deprecaring support...
+                </div>
+              </div>
+              <div class="announcements-update-carousel">
+                <div class="announcement-desc">
+                  <div class="announce-product-name">
+                    Clear Pass
+                  </div>
+                  <div class="announce-date">
+                    Added on Mar 22, 2019
+                  </div>
+                  <div class="announce-more-detailes">
+                    <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                  </div>
+                </div>
+                <div class="announce-product-heading">
+                  ClearPass Policy Manager Multiple Vulnerabilities
+                </div>
+                <div class="announce-product-desc">
+                  Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                  deprecaring support...
+                </div>
+              </div>
+              <div class="announcements-update-carousel">
+                <div class="announcement-desc">
+                  <div class="announce-product-name">
+                    Mobility Controllers
+                  </div>
+                  <div class="announce-date">
+                    Added on Feb 25, 2019
+                  </div>
+                  <div class="announce-more-detailes">
+                    <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                  </div>
+                </div>
+                <div class="announce-product-heading">
+                  Aruba mobility controllers policy manager
+                </div>
+                <div class="announce-product-desc">
+                  Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                  deprecaring support...
+                </div>
+              </div>
+              <div class="announcements-update-carousel">
+                <div class="announcement-desc">
+                  <div class="announce-product-name">
+                    Mobility Controllers
+                  </div>
+                  <div class="announce-date">
+                    Added on Feb 25, 2019
+                  </div>
+                  <div class="announce-more-detailes">
+                    <a href="#"><img src="../../assets/images/icons/lock.png">Login to view more details</a>
+                  </div>
+                </div>
+                <div class="announce-product-heading">
+                  Aruba mobility controllers policy manager
+                </div>
+                <div class="announce-product-desc">
+                  Aruba activate web services uses a certificate issued by the GeoTrust root CA, Google and Mozilla are
+                  deprecaring support...
+                </div>
+              </div>
+              <div class="view-more">
+                <a href="#"><img src="../../assets/images/landing/cta-arrow.png"><span>View More (20)</span></a>
+              </div>
+            </tab>
+          </tabset> -->
+
+         
+        </div>
+        <div class="trending-articles">
+          <div class="trending-articles-heading">
+            Top 10 Trending articles
+          </div>
+          <div class="trending-articles-tab">
+              <mat-tab-group>
+                  <mat-tab label="Airheads Discussions"> 
+                      <div class="row" style="margin: 0; padding: 0;">
+                        
+                          <div class="col-md-6">
+                              <div class="airheads-discussion">
+                                  <div class="airheads-img">
+                                    <div>
+                                      <img src="../../assets/images/landing/airheads.png">
+                                    </div>
+                                    <div class="airheads-img-name">
+                                      syndev305
+                                    </div>
+                                  </div>
+                                  <div class="airheads-desc">
+                                    <div class="airheads-desc-heading">
+                                      User changed password User changed Password
+                                    </div>
+                                    <div class="airheads-desc-dated">
+                                      Posted on Feb 22, 2019
+                                    </div>
+                                    <div class="airheads-desc-count">
+                                      <div class="airheads-view-count">
+                                        
+                                        <img src="../../assets/images/landing/eye.png"><span>12345</span>
+                                      </div>
+                                      <div class="airheads-replay-count">
+                                        
+                                        <img src="../../assets/images/landing/replay.png"><span class="f-orange">21</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                          
+                        </div>
+                          <div class="col-md-6">
+                            <div class="airheads-discussion">
+                              <div class="airheads-img">
+                                <div>
+                                  <img src="../../assets/images/landing/airheads.png">
+                                </div>
+                                <div class="airheads-img-name">
+                                  syndev305
+                                </div>
+                              </div>
+                              <div class="airheads-desc">
+                                <div class="airheads-desc-heading">
+                                  User changed password User changed Password
+                                </div>
+                                <div class="airheads-desc-dated">
+                                  Posted on Feb 22, 2019
+                                </div>
+                                <div class="airheads-desc-count">
+                                  <div class="airheads-view-count">
+                                    
+                                    <img src="../../assets/images/landing/eye.png"><span>12345</span>
+                                  </div>
+                                  <div class="airheads-replay-count">
+                                    
+                                    <img src="../../assets/images/landing/replay.png"><span class="f-orange">21</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="discussions-forum-btn">
+                          <a href="https://community.arubanetworks.com/" target="_blank" mat-button class="orange-bg">SEE ALL DISCUSSION FORUMS</a>
+                        </div>  
+                  </mat-tab>
+                  <mat-tab label="Popular Solutions"> 
+                    <div class="row" style="margin: 0; padding: 0;">
+
+                  <div class="col-md-6">
+                    <div class="airheads-discussion">
+                      <div class="airheads-img">
+                        <div>
+                          <img src="../../assets/images/landing/airheads.png">
+                        </div>
+                        <div class="airheads-img-name">
+                          syndev305
+                        </div>
+                      </div>
+                      <div class="airheads-desc">
+                        <div class="airheads-desc-heading">
+                          User changed password User changed Password
+                        </div>
+                        <div class="airheads-desc-dated">
+                          Posted on Feb 22, 2019
+                        </div>
+                        <div class="airheads-desc-count">
+                          <div class="airheads-view-count">                          
+                            <img src="../../assets/images/landing/eye.png"><span>12345</span>
+                          </div>
+                          <div class="airheads-replay-count">                            
+                            <img src="../../assets/images/landing/replay.png"><span class="f-orange">21</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="airheads-discussion">
+                      <div class="airheads-img">
+                        <div>
+                          <img src="../../assets/images/landing/airheads.png">
+                        </div>
+                        <div class="airheads-img-name">
+                          syndev305
+                        </div>
+                      </div>
+                      <div class="airheads-desc">
+                        <div class="airheads-desc-heading">
+                          User changed password User changed Password
+                        </div>
+                        <div class="airheads-desc-dated">
+                          Posted on Feb 22, 2019
+                        </div>
+                        <div class="airheads-desc-count">
+                          <div class="airheads-view-count">                           
+                            <img src="../../assets/images/landing/eye.png"><span>12345</span>
+                          </div>
+                          <div class="airheads-replay-count">                            
+                            <img src="../../assets/images/landing/replay.png"><span class="f-orange">21</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>                  
+                </div>
+                <div class="discussions-forum-btn">
+                  <a mat-button class="orange-bg">SEE ALL DISCUSSION FORUMS</a>
+                </div>  
+                  </mat-tab>                  
+                </mat-tab-group>
+
+
+             <!-- <tabset>
+              <tab heading="Airheads Discussions" id="tab1">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="airheads-discussion">
+                      <div class="airheads-img">
+                        <div>
+                          <img src="../../assets/images/landing/airheads.png">
+                        </div>
+                        <div class="airheads-img-name">
+                          syndev305
+                        </div>
+                      </div>
+                      <div class="airheads-desc">
+                        <div class="airheads-desc-heading">
+                          User changed password User changed Password
+                        </div>
+                        <div class="airheads-desc-dated">
+                          Posted on Feb 22, 2019
+                        </div>
+                        <div class="airheads-desc-count">
+                          <div class="airheads-view-count">
+                            
+                            <img src="../../assets/images/landing/eye.png"><span>12345</span>
+                          </div>
+                          <div class="airheads-replay-count">
+                          
+                            <img src="../../assets/images/landing/replay.png"><span class="f-orange">21</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="airheads-discussion">
+                      <div class="airheads-img">
+                        <div>
+                          <img src="../../assets/images/landing/airheads.png">
+                        </div>
+                        <div class="airheads-img-name">
+                          syndev305
+                        </div>
+                      </div>
+                      <div class="airheads-desc">
+                        <div class="airheads-desc-heading">
+                          User changed password User changed Password
+                        </div>
+                        <div class="airheads-desc-dated">
+                          Posted on Feb 22, 2019
+                        </div>
+                        <div class="airheads-desc-count">
+                          <div class="airheads-view-count">
+                           
+                            <img src="../../assets/images/landing/eye.png"><span>12345</span>
+                          </div>
+                          <div class="airheads-replay-count">
+                           
+                            <img src="../../assets/images/landing/replay.png"><span class="f-orange">21</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 
+
+                </div>
+                <div class="discussions-forum-btn">
+                  <a href="https://community.arubanetworks.com/" target="_blank" mat-button class="orange-bg">SEE ALL DISCUSSION FORUMS</a>
+                </div>
+              </tab>
+              <tab heading="Popular Solutions">
+                <div class="row">
+
+                  <div class="col-md-6">
+                    <div class="airheads-discussion">
+                      <div class="airheads-img">
+                        <div>
+                          <img src="../../assets/images/landing/airheads.png">
+                        </div>
+                        <div class="airheads-img-name">
+                          syndev305
+                        </div>
+                      </div>
+                      <div class="airheads-desc">
+                        <div class="airheads-desc-heading">
+                          User changed password User changed Password
+                        </div>
+                        <div class="airheads-desc-dated">
+                          Posted on Feb 22, 2019
+                        </div>
+                        <div class="airheads-desc-count">
+                          <div class="airheads-view-count">
+                           
+                            <img src="../../assets/images/landing/eye.png"><span>12345</span>
+                          </div>
+                          <div class="airheads-replay-count">
+                           
+                            <img src="../../assets/images/landing/replay.png"><span class="f-orange">21</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="airheads-discussion">
+                      <div class="airheads-img">
+                        <div>
+                          <img src="../../assets/images/landing/airheads.png">
+                        </div>
+                        <div class="airheads-img-name">
+                          syndev305
+                        </div>
+                      </div>
+                      <div class="airheads-desc">
+                        <div class="airheads-desc-heading">
+                          User changed password User changed Password
+                        </div>
+                        <div class="airheads-desc-dated">
+                          Posted on Feb 22, 2019
+                        </div>
+                        <div class="airheads-desc-count">
+                          <div class="airheads-view-count">
+                           
+                            <img src="../../assets/images/landing/eye.png"><span>12345</span>
+                          </div>
+                          <div class="airheads-replay-count">
+                           
+                            <img src="../../assets/images/landing/replay.png"><span class="f-orange">21</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>                 
+                </div>
+                <div class="discussions-forum-btn">
+                  <a mat-button class="orange-bg">SEE ALL DISCUSSION FORUMS</a>
+                </div>
+              </tab>
+            </tabset> -->
+         
+        
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 no-pad">
+        <div class="services">
+          <div class="invite hide-on-mobile">
+            <div class="invite-heading">
+              Been invited yet?
+            </div>
+            <div class="invite-body-bg">
+              <div class="invite-body">
+                If so, click on “<a href="#">Login</a>”. If not, please request access here:
+              </div>
+              <div class="invite-link">
+                <a href="#"><img src="../../assets/images/landing/mail-img.png"><span>asp-access@hpe.com</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="case-management">
+            <div class="case-management-img">
+              <img src="../../assets/images/landing/case-management.png">
+              <p>Case<br> Management</p>
+            </div>
+            <div class="case-management-access">
+              <span>Get 24/7 access to tech support</span>
+            </div>
+            <div class="case-management-create-case-btn">
+              <a href="https://sso.arubanetworks.com/idp/NfiS7/resumeSAML20/idp/startSSO.ping" target="_blank" mat-button>CREATE A NEW CASE</a>
+            </div>
+          </div>
+          <div class="case-management innovation-zone">
+            <div class="case-management-img">
+              <img src="../../assets/images/landing/innovation-zone.png">
+              <p>Innovation <br> Zone</p>
+            </div>
+            <div class="case-management-access">
+              <span>Have an idea for a product</span>
+            </div>
+            <div class="case-management-create-case-btn">
+              <a href="https://innovate.arubanetworks.com/portal_session/new" target="_blank" mat-button>SUBMIT AN IDEA</a>
+            </div>
+          </div>
+          <div class="case-management licensing-management">
+            <div class="case-management-img">
+              <img src="../../assets/images/landing/licensing-management.png">
+              <p>Licensing Management<br>System (LMS)</p>
+            </div>
+            <div class="case-management-access">
+              <span>Activate, Manage & Evaluate Aruba product licenses</span>
+            </div>
+            <div class="case-management-create-case-btn">
+              <a href="https://sso.arubanetworks.com/idp/4vnBp/resumeSAML20/idp/startSSO.ping" target="_blank" mat-button>CHECK</a>
+            </div>
+          </div>
+          <div class="case-management view-asp-video">
+            <div class="asp-video">
+              <video controls>
+                <source src="movie.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="asp-video-text">
+              View a short video showing the features of the new support portal
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
