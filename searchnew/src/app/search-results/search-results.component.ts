@@ -1,8 +1,9 @@
-import { Component, OnInit ,ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { _ } from "underscore";
+import * as moment from 'moment';
 import { MatPaginator, MatAutocompleteTrigger } from '@angular/material';
 
 @Component({
@@ -25,15 +26,15 @@ export class SearchResultsComponent implements OnInit {
   knowledgeResults: any[] = [];
   helpResults: any[] = [];
   //
-  totalResults:any=0;
+  totalResults: any = 0;
   filteredOptions = [];
   someInput = '';
-  endpoint : string = '';
+  endpoint: string = '';
   pageLength = false;
   pageInit = false;
   showNoResults = false;
   searchTermFinal: string;
-
+  selectedSort = '';
   constructor(private http: HttpClient) { }
 
   private extractData(res: Response) {
@@ -41,15 +42,15 @@ export class SearchResultsComponent implements OnInit {
     return body || {};
   }
 
-  pageChange(event){
-    console.log("clicking",event)
-    
-    if(event.pageSize > 10 && event.pageIndex == 0){
+  pageChange(event) {
+    console.log("clicking", event)
+
+    if (event.pageSize > 10 && event.pageIndex == 0) {
       let lastSearchText = localStorage.getItem("lastSearchText");
-      this.readData(lastSearchText,event.pageIndex,event.pageSize);
-    }else{
+      this.readData(lastSearchText, event.pageIndex, event.pageSize);
+    } else {
       let lastSearchText = localStorage.getItem("lastSearchText");
-      this.readData(lastSearchText,event.pageIndex,event.pageSize);
+      this.readData(lastSearchText, event.pageIndex, event.pageSize);
     }
   }
   /***
@@ -62,33 +63,46 @@ export class SearchResultsComponent implements OnInit {
         this.filteredOptions = finalOutput;
         console.log(this.filteredOptions)
       })
-    }else{
+    } else {
       this.filteredOptions = [];
     }
   }
 
-  
-  selectTest(event){
+  /**
+   * Sort by 
+   * @param event 
+   */
+  sortDate() {
+    let sortResult = this.finalSearchResults1.sort((a: any, b: any) => {
+      if (<any>moment(a.dateLastCrawled).format('YYYY-MM-DDTHH:MM:SS') < (<any>moment(b.dateLastCrawled).format('YYYY-MM-DDTHH:MM:SS'))) { return -1; }
+      if (<any>moment(a.dateLastCrawled).format('YYYY-MM-DDTHH:MM:SS') > (<any>moment(b.dateLastCrawled).format('YYYY-MM-DDTHH:MM:SS'))) { return 1; }
+      return 0;
+    });
+    let finalResult: any = this.selectedSort === 'dateAsc' ? sortResult : this.selectedSort === 'dateDesc' ? sortResult.reverse() : [];
+    this.finalSearchResults1 = finalResult;
+  }
+
+  selectTest(event) {
 
   }
 
-  readData(data,pagecount = 0,pageSize = 0) {
-   
+  readData(data, pagecount = 0, pageSize = 0) {
+
     // if(data)
     //   this.spinner.show();
 
     // console.log(data)
-    data = data.replace(/_/g," ");
-    localStorage.setItem("lastSearchText",data);
-    console.log(data,"===")
+    data = data.replace(/_/g, " ");
+    localStorage.setItem("lastSearchText", data);
+    console.log(data, "===")
     this.pageLength = false;
     this.showNoResults = false;
     this.bingResults = [];
     this.azureResults = [];
     this.finalSearchResults = [];
     this.finalSearchResults1 = [];
-    
-    
+
+
     // console.log("search dta", data);
     // let someInput: String = ""
     let searchTerm = data;
@@ -101,33 +115,27 @@ export class SearchResultsComponent implements OnInit {
     }
     let limit = 10;
     let offset = 0;
-    if(pagecount > 0){
+    if (pagecount > 0) {
       offset = pageSize + 1;
-      console.log("changed offset ",offset)
+      console.log("changed offset ", offset)
     }
-    if(pageSize > 0){
+    if (pageSize > 0) {
       limit = pageSize;
     }
 
-    this.endpoint = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?customconfig=" + qs.customconfig + "&q=" + qs.q + "&count="+limit+"&offset="+offset+"&responseFilter=support";
-    console.log("bing endpoint==",this.endpoint)
+    this.endpoint = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?customconfig=" + qs.customconfig + "&q=" + qs.q + "&count=" + limit + "&offset=" + offset + "&responseFilter=support";
+    console.log("bing endpoint==", this.endpoint)
     this.listNotification().subscribe((data: any) => {
-      
-      if(data.hasOwnProperty('webPages')){
+
+      if (data.hasOwnProperty('webPages')) {
         this.totalResults = data.webPages.totalEstimatedMatches;
       }
       this.bingResults = data.hasOwnProperty('webPages') ? data.webPages.value : [];
-      console.log(this.bingResults.length, " Bing results found")
       this.bingResults.forEach(bingObject => {
         bingObject['isLocked'] = false;
       });
-      
-      this.finalSearchResults1 = this.finalSearchResults1.concat(this.bingResults)
 
-      
-      console.log(this.finalSearchResults1)
-      
-
+      this.finalSearchResults1 = this.finalSearchResults1.concat(this.bingResults);
       this.announcementResults = [];
       this.softwareResults = [];
       this.documentationResults = [];
@@ -135,37 +143,37 @@ export class SearchResultsComponent implements OnInit {
       this.helpResults = [];
       //
       this.finalSearchResults1.forEach((resultsObj) => {
-        if(resultsObj.url.indexOf("community.arubanetworks.com") != -1){
+        if (resultsObj.url.indexOf("community.arubanetworks.com") != -1) {
           this.knowledgeResults.push(resultsObj);
-        }else if(resultsObj.url.indexOf("support.arubanetworks.com") != -1){
-          if(resultsObj.url.toLowerCase().indexOf("documentation") != -1){
+        } else if (resultsObj.url.indexOf("support.arubanetworks.com") != -1) {
+          if (resultsObj.url.toLowerCase().indexOf("documentation") != -1) {
             this.documentationResults.push(resultsObj);
-          }else{
+          } else {
             this.softwareResults.push(resultsObj);
             this.knowledgeResults.push(resultsObj);
           }
-        }else if(resultsObj.url.indexOf("ase.arubanetworks.com") != -1){
+        } else if (resultsObj.url.indexOf("ase.arubanetworks.com") != -1) {
           this.knowledgeResults.push(resultsObj);
-        }else if(resultsObj.url.indexOf("asp.arubanetworks.com") != -1){
-          if(resultsObj.url.toLowerCase().indexOf("documentation") != -1){
+        } else if (resultsObj.url.indexOf("asp.arubanetworks.com") != -1) {
+          if (resultsObj.url.toLowerCase().indexOf("documentation") != -1) {
             this.documentationResults.push(resultsObj);
-          }else{
+          } else {
             this.announcementResults.push(resultsObj);
             this.softwareResults.push(resultsObj);
-          }  
-        }else if(resultsObj.url.indexOf("help.central.arubanetworks.com") != -1){
+          }
+        } else if (resultsObj.url.indexOf("help.central.arubanetworks.com") != -1) {
           this.helpResults.push(resultsObj);
-        }else if(resultsObj.url.indexOf("www.youtube.com/user/ArubaNetworks") != -1){
+        } else if (resultsObj.url.indexOf("www.youtube.com/user/ArubaNetworks") != -1) {
           this.helpResults.push(resultsObj);
         }
       })
-      console.log("softwareResults ===",this.softwareResults.length)
-      console.log("announcementResults ===",this.announcementResults.length)
-      console.log("documentationResults ===",this.documentationResults.length)
-      console.log("knowledgeResults ===",this.knowledgeResults.length)
-      console.log("helpResults ===",this.helpResults.length)
+      console.log("softwareResults ===", this.softwareResults.length)
+      console.log("announcementResults ===", this.announcementResults.length)
+      console.log("documentationResults ===", this.documentationResults.length)
+      console.log("knowledgeResults ===", this.knowledgeResults.length)
+      console.log("helpResults ===", this.helpResults.length)
 
-      if(this.finalSearchResults1.length == 0){
+      if (this.finalSearchResults1.length == 0) {
         this.showNoResults = true;
       }
       if (this.finalSearchResults1.length > 0) {
@@ -178,7 +186,7 @@ export class SearchResultsComponent implements OnInit {
   accessDocument(event, item) {
     if (item.isLocked) {
       // alert("You don't have access to view this document. Please login to view this content.")
-      localStorage.setItem('lockedRedirectUrl',item.url)
+      localStorage.setItem('lockedRedirectUrl', item.url)
       // this.router.navigate(['/login'])
       window.open('/login', "_blank");
     } else {
@@ -200,7 +208,7 @@ export class SearchResultsComponent implements OnInit {
   }
 
   getAutoSuggestions(someInput): Observable<any> {
-    let customEndPoint = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/suggestions/search?q="+someInput+"&customconfig=08cdbf31-92cc-45f4-bbe5-cfc38f27505b"
+    let customEndPoint = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/suggestions/search?q=" + someInput + "&customconfig=08cdbf31-92cc-45f4-bbe5-cfc38f27505b"
     const autoSuggestHeaders = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
